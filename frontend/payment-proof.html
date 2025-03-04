@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>หลักฐานการชำระเงิน</title>
+    <link rel="stylesheet" href="assets/payment-proof.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="profile">
+                <img src="assets/user.webp" alt="User Profile">
+                <h3>นาย พีรพัฒน์ จินดาวงษ์</h3>
+                <p>ตำแหน่ง: ผู้จัดการ</p>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="room-management.html">ข้อมูลห้องพัก</a></li>
+                    <li><a href="electricity.html">ค่าไฟ</a></li>
+                    <li><a href="water.html" class="active">ค่าน้ำ</a></li>
+                    <li><a href="rent.html">ค่าห้องพัก</a></li>
+                    <li><a href="complaints.html">คำร้องของผู้เช่า</a></li>
+                    <li><a href="employees.html">รายชื่อพนักงาน</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="dashboard-content">
+            <div class="header-bar">หลักฐานการชำระเงิน</div>
+
+            <div class="payment-proof">
+                <h2 id="room-number">ห้อง -</h2>
+                <h3>หลักฐานชำระค่าเช่า</h3>
+                <img id="proof-image" src="" alt="ไม่มีหลักฐานการชำระเงิน">
+                <p id="error-message" style="color: red; display: none;">⚠ ไม่สามารถโหลดรูปได้</p>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const urlParams = new URLSearchParams(window.location.search);
+            const roomNumber = urlParams.get("room");
+            let proofLink = urlParams.get("proof");
+
+            // แปลง URL Encoded กลับเป็นค่าปกติ
+            if (proofLink) {
+                proofLink = decodeURIComponent(proofLink);
+            }
+
+            console.log("Room:", roomNumber);
+            console.log("Proof Link:", proofLink);
+
+            // ตั้งค่าหมายเลขห้อง
+            document.getElementById("room-number").innerText = `ห้อง ${roomNumber || "-"}`;
+
+            // ตั้งค่าภาพหลักฐานการชำระเงิน
+            const proofImage = document.getElementById("proof-image");
+            if (proofLink && proofLink.startsWith("http")) {
+                proofImage.src = proofLink;
+            } else {
+                proofImage.alt = "ไม่มีหลักฐานการชำระเงิน";
+            }
+
+            // ตรวจสอบว่าภาพโหลดได้หรือไม่
+            proofImage.onerror = function () {
+                proofImage.style.display = "none";
+                document.getElementById("error-message").style.display = "block";
+            };
+        });
+    </script>
+</body>
+</html>

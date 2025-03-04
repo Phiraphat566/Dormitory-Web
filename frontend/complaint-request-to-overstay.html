@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>รายละเอียดคำร้องขออยู่เกินกำหนด</title>
+    <link rel="stylesheet" href="assets/complaint-request-to-overstay.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="profile">
+                <img src="assets/user.webp" alt="User Profile">
+                <h3>นาย พีรพัฒน์ จินดาวงษ์</h3>
+                <p>ตำแหน่ง: ผู้จัดการ</p>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="room-management.html">ข้อมูลห้องพัก</a></li>
+                    <li><a href="electricity.html">ค่าไฟ</a></li>
+                    <li><a href="water.html" class="active">ค่าน้ำ</a></li>
+                    <li><a href="rent.html">ค่าห้องพัก</a></li>
+                    <li><a href="complaints.html">คำร้องของผู้เช่า</a></li>
+                    <li><a href="employees.html">รายชื่อพนักงาน</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="dashboard-content">
+            <div class="header-bar">รายละเอียดคำร้องขออยู่เกินกำหนด</div>
+
+            <div class="complaint-form">
+                <div class="form-grid">
+                    <div>
+                        <label>ชื่อ-นามสกุล</label>
+                        <input type="text" id="over-tenant-name" disabled>
+                    </div>
+                    <div>
+                        <label>หมายเลขห้องพัก</label>
+                        <input type="text" id="over-room-number" disabled>
+                    </div>
+                    <div>
+                        <label>วันสิ้นสุดสัญญาเดิม</label>
+                        <input type="text" id="over-old-end-date" disabled>
+                    </div>
+                    <div>
+                        <label>ระยะเวลาที่ต้องการขยาย</label>
+                        <input type="text" id="over-extension" disabled>
+                    </div>
+                    <div>
+                        <label>วันที่ต้องการสิ้นสุดใหม่</label>
+                        <input type="text" id="over-new-end-date" disabled>
+                    </div>
+                </div>
+            
+                <label>เหตุผลที่ต้องการขยาย</label>
+                <textarea id="over-reason" disabled></textarea>
+            
+                <div class="status-buttons">
+                    <button class="pending">กำลังดำเนินการ</button>
+                    <button class="completed">ดำเนินการแล้ว</button>
+                </div>
+            </div>
+            
+            
+
+    <script src="assets/complaint-request-to-overstay.js"></script>
+</body>
+</html>

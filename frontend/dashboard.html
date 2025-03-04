@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - VS Apartment</title>
+    <link rel="stylesheet" href="assets/dashboard.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="profile">
+                <img src="assets/user.webp" alt="User Profile">
+                <h3>นาย พีรพัฒน์ จินดาวงษ์</h3>
+                <p>ตำแหน่ง: ผู้จัดการ</p>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="room-management.html">ข้อมูลห้องพัก</a></li>
+                    <li><a href="electricity.html">ค่าไฟ</a></li>
+                    <li><a href="water.html" class="active">ค่าน้ำ</a></li>
+                    <li><a href="rent.html">ค่าห้องพัก</a></li>
+                    <li><a href="complaints.html">คำร้องของผู้เช่า</a></li>
+                    <li><a href="employees.html">รายชื่อพนักงาน</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Dashboard Content -->
+        <main class="dashboard-content">
+            <div class="header-bar">หน้าหลัก</div>
+            <div class="grid-container">
+                <div class="card statistics">
+                    <h2>Statistics</h2>
+                    <canvas id="roomChart"></canvas>
+                </div>
+                <div class="card yearly-chart">
+                    <h2>ค่าใช้จ่ายรวมค่าน้ำค่าไฟปี 2567</h2>
+                    <canvas id="yearlyChart"></canvas>
+                </div>
+                <div class="card bills">
+                    <h2>ค่าน้ำ ค่าไฟ ประจำเดือนกุมภาพันธ์</h2>
+                    <div class="progress-container">
+                        <p><span class="icon">⚡</span> รวมยอดค่าไฟ: <b>฿139,553.00</b></p>
+                        <div class="progress-bar yellow" style="width: 75%"></div>
+                        <p><span class="icon">💧</span> รวมยอดค่าน้ำ: <b>฿46,197.00</b></p>
+                        <div class="progress-bar blue" style="width: 25%"></div>
+                        <p><span class="icon">📊</span> รวมยอดค่าน้ำค่าไฟ: <b>฿185,750.00</b></p>
+                        <div class="progress-bar green" style="width: 100%"></div>
+                    </div>
+                </div>
+                <div class="card monthly-expenses">
+                    <h2>ค่าใช้จ่ายแต่ละเดือน</h2>
+                    <div class="month-list">
+                        <p><span class="month">มกราคม:</span> ฿254,103</p>
+                        <p><span class="month">กุมภาพันธ์:</span> ฿169,497</p>
+                        <p><span class="month">มีนาคม:</span> ฿165,432</p>
+                        <p><span class="month">เมษายน:</span> ฿112,534</p>
+                        <p><span class="month">พฤษภาคม:</span> ฿127,457</p>
+                        <p><span class="month">มิถุนายน:</span> ฿214,509</p>
+                        <p><span class="month">กรกฎาคม:</span> ฿224,537</p>
+                        <p><span class="month">สิงหาคม:</span> ฿194,564</p>
+                        <p><span class="month">กันยายน:</span> ฿185,456</p>
+                        <p><span class="month">ตุลาคม:</span> ฿179,945</p>
+                        <p><span class="month">พฤศจิกายน:</span> ฿172,719</p>
+                        <p><span class="month">ธันวาคม:</span> ฿175,891</p>
+                    </div>
+                    <p class="total-expense"><b>รวมทั้งหมด: ฿3,672,541.00</b></p>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <script src="assets/dashboard.js"></script>
+</body>
+</html>

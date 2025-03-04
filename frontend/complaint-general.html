@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>รายละเอียดคำร้องทั่วไป</title>
+    <link rel="stylesheet" href="assets/complaint-general.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="profile">
+                <img src="assets/user.webp" alt="User Profile">
+                <h3>นาย พีรพัฒน์ จินดาวงษ์</h3>
+                <p>ตำแหน่ง: ผู้จัดการ</p>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="room-management.html">ข้อมูลห้องพัก</a></li>
+                    <li><a href="electricity.html">ค่าไฟ</a></li>
+                    <li><a href="water.html" class="active">ค่าน้ำ</a></li>
+                    <li><a href="rent.html">ค่าห้องพัก</a></li>
+                    <li><a href="complaints.html">คำร้องของผู้เช่า</a></li>
+                    <li><a href="employees.html">รายชื่อพนักงาน</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="dashboard-content">
+            <div class="header-bar">รายละเอียดคำร้องทั่วไป</div>
+
+            <div class="complaint-form" id="general-complaint">
+                <div class="form-group">
+                    <label>ชื่อ-นามสกุล</label>
+                    <input type="text" id="gen-tenant-name" disabled>
+                </div>
+
+                <div class="form-group">
+                    <label>หมายเลขห้องพัก</label>
+                    <input type="text" id="gen-room-number" disabled>
+                </div>
+
+                <div class="form-group">
+                    <label></label>
+                    <div id="gen-complaint-type"></div>
+                </div>
+
+                <div class="form-group">
+                    <label>รายละเอียดคำร้อง</label>
+                    <textarea id="gen-complaint-detail" disabled></textarea>
+                </div>
+
+                <div class="status-buttons">
+                    <button class="pending">กำลังดำเนินการ</button>
+                    <button class="completed">ดำเนินการแล้ว</button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="assets/complaint-general.js"></script>
+</body>
+</html>

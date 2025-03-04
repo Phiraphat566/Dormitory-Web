@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>จัดการผู้เช่า - VS Apartment</title>
+    <link rel="stylesheet" href="assets/tenant-management.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="profile">
+                <img src="assets/user.webp" alt="User Profile">
+                <h3>นาย พีรพัฒน์ จินดาวงษ์</h3>
+                <p>ตำแหน่ง: ผู้จัดการ</p>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="room-management.html">ข้อมูลห้องพัก</a></li>
+                    <li><a href="electricity.html">ค่าไฟ</a></li>
+                    <li><a href="water.html" class="active">ค่าน้ำ</a></li>
+                    <li><a href="rent.html">ค่าห้องพัก</a></li>
+                    <li><a href="complaints.html">คำร้องของผู้เช่า</a></li>
+                    <li><a href="employees.html">รายชื่อพนักงาน</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Dashboard Content -->
+        <main class="dashboard-content">
+            <div class="header-bar">
+                <span id="action-title">จัดการผู้เช่า</span>
+                
+            </div>
+            
+            <!-- Dropdown เลือกการกระทำ -->
+            <div class="action-dropdown">
+                <select id="tenant-action">
+                    <option value="add">เพิ่มผู้พักอาศัย</option>
+                    <option value="edit">แก้ไขข้อมูลผู้พักอาศัย</option>
+                    <option value="delete">ลบผู้พักอาศัย</option>
+                </select>
+            </div>
+
+            <!-- ช่องกรอกหมายเลขห้องพัก -->
+            <div class="room-input-container">
+                <label for="room-number">หมายเลขห้องพัก:</label>
+                <input type="text" id="room-number" placeholder="กรอกหมายเลขห้องพัก" oninput="fetchRoomData()">
+                <span class="room-warning">กรุณากรอกหมายเลขห้องพัก</span>
+            </div>
+            
+            <!-- แบบฟอร์มจัดการผู้เช่า -->
+            <div class="tenant-form">
+                <label>ชื่อ <input type="text" id="tenant-name"></label>
+                <label>สัญญาเช่ากี่ปี <input type="text" id="contract-period"></label>
+                <label>จำนวนผู้พักอาศัย <input type="text" id="tenant-count"></label>
+                <label>วันเริ่มต้นการเข้าพัก <input type="date" id="start-date"></label>
+                <label>วันสิ้นสุดสัญญา <input type="date" id="end-date"></label>
+                <label>ข้อมูลติดต่อ <input type="text" id="contact-info"></label>
+            </div>
+            
+            <!-- ปุ่มยืนยันและยกเลิก -->
+            <div class="action-buttons">
+                <button class="cancel">ยกเลิก</button>
+                <button class="confirm">ยืนยัน</button>
+            </div>
+        </main>
+    </div>
+
+    <script src="assets/tenant-management.js"></script>
+</body>
+</html>

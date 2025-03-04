@@ -1,0 +1,134 @@
+/* รีเซ็ตค่าเริ่มต้น */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: white;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 50px;
+    background-color: #FF92B2;
+    height: 70px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+/* เมนู */
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+nav ul li {
+    position: relative;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    font-size: 1rem;
+    padding: 10px 15px;
+    transition: all 0.3s ease-in-out;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Contact Section */
+.contact-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 50px;
+    gap: 50px;
+}
+
+/* กล่องข้อมูลติดต่อ */
+.contact-box {
+    flex: 1;
+    background: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.contact-box h2 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    color: #000;
+}
+
+.contact-box h3 {
+    font-size: 1.2rem;
+    margin-top: 15px;
+    color: #333;
+}
+
+.contact-box p {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #444;
+}
+
+.contact-box ul {
+    list-style: none;
+    padding: 0;
+}
+
+.contact-box ul li {
+    font-size: 1rem;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: #444;
+}
+
+/* กล่องแผนที่ */
+.map-box {
+    flex: 1;
+    background: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.map-box h2 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    color: #000;
+}
+
+/* Footer */
+footer {
+    background-color: #FF92B2;
+    text-align: center;
+    padding: 10px;
+    margin-top: auto;
+}

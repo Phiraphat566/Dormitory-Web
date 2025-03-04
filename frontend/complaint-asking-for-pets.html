@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>รายละเอียดคำร้องขอเลี้ยงสัตว์</title>
+    <link rel="stylesheet" href="assets/complaint-asking-for-pets.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="profile">
+                <img src="assets/user.webp" alt="User Profile">
+                <h3>นาย พีรพัฒน์ จินดาวงษ์</h3>
+                <p>ตำแหน่ง: ผู้จัดการ</p>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="room-management.html">ข้อมูลห้องพัก</a></li>
+                    <li><a href="electricity.html">ค่าไฟ</a></li>
+                    <li><a href="water.html" class="active">ค่าน้ำ</a></li>
+                    <li><a href="rent.html">ค่าห้องพัก</a></li>
+                    <li><a href="complaints.html">คำร้องของผู้เช่า</a></li>
+                    <li><a href="employees.html">รายชื่อพนักงาน</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="dashboard-content">
+            <div class="header-bar">รายละเอียดคำร้องขอเลี้ยงสัตว์</div>
+
+            <label>ชื่อ-นามสกุล</label>
+            <input type="text" id="pet-tenant-name" disabled>
+
+            <label>หมายเลขห้องพัก</label>
+            <input type="text" id="pet-room-number" disabled>
+
+            <label>ประเภทสัตว์เลี้ยง</label>
+            <input type="text" id="pet-type" disabled>
+
+            <label>สายพันธุ์</label>
+            <input type="text" id="pet-breed" disabled>
+
+            <label>อายุของสัตว์เลี้ยง</label>
+            <input type="text" id="pet-age" disabled>
+
+            <label>จำนวนสัตว์เลี้ยง</label>
+            <input type="text" id="pet-count" disabled>
+
+            <label>ข้อมูลเพิ่มเติม</label>
+            <textarea id="pet-additional" disabled></textarea>
+            <div class="status-buttons">
+                <button class="pending">กำลังดำเนินการ</button>
+                <button class="completed">ดำเนินการแล้ว</button>
+            </div>
+
+        </main>
+    </div>
+
+    <script src="assets/complaint-asking-for-pets.js"></script>
+</body>
+</html>

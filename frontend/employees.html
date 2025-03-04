@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>รายชื่อพนักงาน</title>
+    <link rel="stylesheet" href="assets/employees.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="profile">
+                <img src="assets/user.webp" alt="User Profile">
+                <h3>นาย พีรพัฒน์ จินดาวงษ์</h3>
+                <p>ตำแหน่ง: ผู้จัดการ</p>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="room-management.html">ข้อมูลห้องพัก</a></li>
+                    <li><a href="electricity.html">ค่าไฟ</a></li>
+                    <li><a href="water.html" class="active">ค่าน้ำ</a></li>
+                    <li><a href="rent.html">ค่าห้องพัก</a></li>
+                    <li><a href="complaints.html">คำร้องของผู้เช่า</a></li>
+                    <li><a href="employees.html">รายชื่อพนักงาน</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="dashboard-content">
+            <div class="header-bar">รายชื่อพนักงาน</div>
+            <button id="edit-mode-btn">🔄 แก้ไข</button>
+            <div class="header-bar">
+                รายชื่อพนักงาน
+                <button id="add-employee-btn" class="add-btn">➕ เพิ่มพนักงาน</button>
+            </div>
+
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ชื่อ-นามสกุล</th>
+                            <th>ที่อยู่</th>
+                            <th>ตำแหน่ง</th>
+                            <th>เงินเดือน</th>
+                            <th class="edit-column">แก้ไข</th>
+                        </tr>
+                    </thead>
+                    <tbody id="employee-list">
+                        <!-- Data will be loaded here -->
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+
+    <script src="assets/employees.js"></script>
+</body>
+</html>

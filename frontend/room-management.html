@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ข้อมูลห้องพัก - VS Apartment</title>
+    <link rel="stylesheet" href="assets/room-management.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="profile">
+                <img src="assets/user.webp" alt="User Profile">
+                <h3>นาย พีรพัฒน์ จินดาวงษ์</h3>
+                <p>ตำแหน่ง: ผู้จัดการ</p>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="room-management.html">ข้อมูลห้องพัก</a></li>
+                    <li><a href="electricity.html">ค่าไฟ</a></li>
+                    <li><a href="water.html" class="active">ค่าน้ำ</a></li>
+                    <li><a href="rent.html">ค่าห้องพัก</a></li>
+                    <li><a href="complaints.html">คำร้องของผู้เช่า</a></li>
+                    <li><a href="employees.html">รายชื่อพนักงาน</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Dashboard Content -->
+        <main class="dashboard-content">
+            <div class="header-bar">
+                ข้อมูลห้องพัก 
+                <a href="tenantmanagement.html" class="add-tenant">
+                    ➕ เพิ่มผู้เช่า
+                </a>
+                
+            </div>
+
+            <!-- ฟิลเตอร์การแสดงผล -->
+            <div class="filter-bar">
+                <button class="filter active" data-filter="all">ห้องทั้งหมด</button>
+                <button class="filter" data-filter="available">ห้องที่ว่าง</button>
+                <button class="filter" data-filter="occupied">ห้องที่ไม่ว่าง</button>
+            </div>
+
+            <!-- ตารางแสดงข้อมูลห้อง -->
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>หมายเลขห้องพัก</th>
+                            <th>สถานะ</th>
+                            <th>จำนวนผู้เช่า</th>
+                        </tr>
+                    </thead>
+                    <tbody id="room-list">
+                        <!-- ดึงข้อมูลจากฐานข้อมูลมาแสดง -->
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Pagination -->
+            <div class="pagination">
+                <span class="page active">1</span>
+                <span class="page">2</span>
+                <span class="page">3</span>
+                <span class="page">...</span>
+                <span class="page">22</span>
+                <span class="page">▶</span>
+            </div>
+        </main>
+    </div>
+
+    <script src="assets/room-management.js"></script>
+</body>
+</html>

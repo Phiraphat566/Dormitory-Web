@@ -1,0 +1,181 @@
+/* รีเซ็ตค่าเริ่มต้น */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    display: flex;
+    background-color: #f8f8f8;
+}
+
+/* คอนเทนเนอร์หลัก */
+.container {
+    display: flex;
+    width: 100%;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 270px; /* ขยายให้เหมือนต้นแบบ */
+    background-color: #1e1e1e; /* เปลี่ยนเป็นสีดำ */
+    color: white;
+    padding: 20px;
+    min-height: 100vh;
+}
+
+/* ปรับรูปโปรไฟล์ */
+.sidebar .profile {
+    text-align: center;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #555; /* เส้นคั่น */
+}
+
+.sidebar .profile img {
+    width: 100px; /* เพิ่มขนาด */
+    height: 100px;
+    border-radius: 50%; /* ทำให้เป็นวงกลม */
+    border: 3px solid white; /* เพิ่มขอบสีขาวให้เด่น */
+    object-fit: cover; /* ทำให้รูปเต็มพื้นที่ */
+    margin-bottom: 10px;
+}
+
+
+.sidebar img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+/* รายการเมนู */
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    padding: 15px;
+    margin-bottom: 10px; /* เพิ่มช่องว่างระหว่างเมนู */
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.2rem;
+    background-color: #ffa07a; /* สีส้มอ่อน */
+    border-radius: 8px; /* โค้งมน */
+    transition: background 0.3s;
+}
+
+.sidebar ul li a {
+    text-decoration: none;
+    color: black; /* เปลี่ยนเป็นสีดำเพื่อให้อ่านง่าย */
+    display: block;
+    width: 100%;
+    font-weight: bold;
+}
+
+.sidebar ul li:hover {
+    background-color: #ff8f50; /* สีเข้มขึ้นเมื่อโฮเวอร์ */
+}
+
+/* Header Bar */
+.header-bar {
+    background-color: #ffa07a;
+    text-align: center;
+    padding: 15px;
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: black;
+    width: 100%;
+}
+
+/* Main Content */
+.dashboard-content {
+    flex-grow: 1;
+    padding: 0px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Grid Layout */
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    padding: 20px;
+    align-items: start;
+}
+
+/* Card */
+.card {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    min-height: 280px; /* ปรับขนาดให้พอดีกับเนื้อหา */
+}
+
+/* Statistics Chart */
+.statistics {
+    grid-column: span 1;
+}
+
+/* Yearly Chart */
+.yearly-chart {
+    grid-column: span 1;
+}
+
+/* ค่าน้ำ ค่าไฟเดือนกุมภาพันธ์ */
+.bills {
+    grid-column: span 1;
+}
+
+/* Monthly Expenses */
+.monthly-expenses {
+    grid-column: span 1;
+}
+
+/* Progress Bar */
+.progress-container {
+    margin-top: 10px;
+}
+
+.progress-bar {
+    height: 10px;
+    border-radius: 5px;
+    margin: 5px 0;
+}
+
+.yellow { background-color: #ffc107; }
+.blue { background-color: #00aaff; }
+.green { background-color: #00c853; }
+
+/* Monthly Expenses */
+.month-list p {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+    font-size: 1.1rem;
+}
+
+.total-expense {
+    text-align: right;
+    font-size: 1.3rem;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+/* Chart */
+canvas {
+    width: 100% !important;
+    height: 260px !important;
+}
+
+/* ปรับขนาดการ์ดให้เท่ากัน */
+.card {
+    min-height: 320px;
+}

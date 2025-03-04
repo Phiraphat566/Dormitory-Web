@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ค่าเช่าของแต่ละห้อง</title>
+    <link rel="stylesheet" href="assets/rent.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="profile">
+                <img src="assets/user.webp" alt="User Profile">
+                <h3>นาย พีรพัฒน์ จินดาวงษ์</h3>
+                <p>ตำแหน่ง: ผู้จัดการ</p>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="room-management.html">ข้อมูลห้องพัก</a></li>
+                    <li><a href="electricity.html">ค่าไฟ</a></li>
+                    <li><a href="water.html" class="active">ค่าน้ำ</a></li>
+                    <li><a href="rent.html">ค่าห้องพัก</a></li>
+                    <li><a href="complaints.html">คำร้องของผู้เช่า</a></li>
+                    <li><a href="employees.html">รายชื่อพนักงาน</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="dashboard-content">
+            <div class="header-bar">ค่าเช่าของแต่ละห้อง</div>
+            <div class="filter-bar">
+                <button class="filter active" data-filter="all">ห้องทั้งหมด</button>
+                <button class="filter" data-filter="unpaid">ห้องยังไม่ชำระ</button>
+                <button class="filter" data-filter="paid">ห้องที่ชำระ</button>
+                <button class="filter" data-filter="due">ห้องที่ใกล้ชำระ</button>
+            </div>
+
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>หมายเลขห้องพัก</th>
+                            <th>ค่าเช่า</th>
+                            <th>สถานะ</th>
+                            <th>ตรวจสอบ</th>
+                        </tr>
+                    </thead>
+                    <tbody id="water-list">
+                        <!-- Data will be injected here -->
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="pagination"></div>
+        </main>
+    </div>
+    <script src="assets/rent.js"></script>
+</body>
+</html>

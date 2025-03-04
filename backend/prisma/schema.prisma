@@ -1,0 +1,134 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model complaint_asking_for_pets {
+  ComplaintAP_ID     String   @id @db.VarChar(100)
+  Pet_Type           String?  @db.VarChar(100)
+  Pet_Breed          String?  @db.VarChar(100)
+  Pet_Age            String?  @db.VarChar(100)
+  Pet_Count          String?  @db.VarChar(100)
+  ComplaintAP_Detail String?  @db.VarChar(100)
+  Tenant_ID          Int?
+  tenants            tenants? @relation(fields: [Tenant_ID], references: [Tenant_ID], onDelete: NoAction, onUpdate: NoAction, map: "complaint_asking_for_pets_tenants_FK")
+
+  @@index([Tenant_ID], map: "complaint_asking_for_pets_tenants_FK")
+}
+
+model complaint_general {
+  ComplaintG_ID    String   @id @db.VarChar(100)
+  Complaint_type   String?  @db.VarChar(100)
+  Complaint_Detail String?  @db.Text
+  Tenant_ID        Int?
+  tenants          tenants? @relation(fields: [Tenant_ID], references: [Tenant_ID], onDelete: NoAction, onUpdate: NoAction, map: "complaint_general_tenants_FK")
+
+  @@index([Tenant_ID], map: "complaint_general_tenants_FK")
+}
+
+model complaint_overstay_request {
+  ComplaintOR_ID      String   @id @db.VarChar(100)
+  Original_End_Date   String?  @db.VarChar(100)
+  Requested_Extension String?  @db.VarChar(100)
+  New_End_Date        String?  @db.VarChar(100)
+  Reason              String?  @db.Text
+  Tenant_ID           Int?
+  tenants             tenants? @relation(fields: [Tenant_ID], references: [Tenant_ID], onDelete: NoAction, onUpdate: NoAction, map: "complaint_overstay_request_tenants_FK")
+
+  @@index([Tenant_ID], map: "complaint_overstay_request_tenants_FK")
+}
+
+model contact_tenant {
+  Contact_T_ID String    @id @db.VarChar(100)
+  Phone        String?   @db.VarChar(100)
+  Gmail        String?   @db.VarChar(100)
+  tenants      tenants[]
+}
+
+model electricity_bill {
+  Electric_ID      Int      @id @default(autoincrement())
+  Price            Int?
+  status           String?  @db.VarChar(100)
+  Tenant_ID        Int?
+  Proof_of_payment Bytes?
+  tenants          tenants? @relation(fields: [Tenant_ID], references: [Tenant_ID], onDelete: NoAction, onUpdate: NoAction, map: "electricity_bill_tenants_FK")
+
+  @@index([Tenant_ID], map: "electricity_bill_tenants_FK")
+}
+
+model monthly_usage {
+  Monthly_ID     Int      @id
+  Year           String?  @db.VarChar(100)
+  Total_Water    Decimal? @db.Decimal(10, 0)
+  Total_Electric Decimal? @db.Decimal(10, 0)
+  Month_Name     String?  @db.VarChar(100)
+}
+
+model officer {
+  Officer_ID Int     @id @default(autoincrement())
+  first_name String? @db.VarChar(100)
+  last_name  String? @db.VarChar(100)
+  Address    String? @db.Text
+  position   String? @db.VarChar(100)
+  salary     Int?
+}
+
+model rent_bill {
+  Rent_ID          Int      @id @default(autoincrement())
+  Price            String?  @db.VarChar(100)
+  status           String?  @db.VarChar(100)
+  Tenant_ID        Int?
+  Proof_of_payment Bytes?
+  tenants          tenants? @relation(fields: [Tenant_ID], references: [Tenant_ID], onDelete: NoAction, onUpdate: NoAction, map: "rent_bill_tenants_FK")
+
+  @@index([Tenant_ID], map: "rent_bill_tenants_FK")
+}
+
+model rooms {
+  Room_ID                          String    @id @db.VarChar(100)
+  Contract_period                  String?   @db.VarChar(100)
+  Start_date_of_stay               DateTime? @db.Date
+  Contract_end_date                DateTime? @db.Date
+  Number_of_tenants                Int?
+  status                           String?   @db.VarChar(100)
+  Tenant_ID                        Int?
+  tenants_rooms_Tenant_IDTotenants tenants?  @relation("rooms_Tenant_IDTotenants", fields: [Tenant_ID], references: [Tenant_ID], onDelete: NoAction, onUpdate: NoAction, map: "rooms_tenants_FK")
+  tenants_tenants_Room_IDTorooms   tenants[] @relation("tenants_Room_IDTorooms")
+
+  @@index([Tenant_ID], map: "rooms_tenants_FK")
+}
+
+model tenants {
+  Tenant_ID                      Int                          @id @default(autoincrement())
+  Ten_name                       String?                      @db.VarChar(100)
+  Address                        String?                      @db.Text
+  Room_ID                        String?                      @db.VarChar(100)
+  Contact_T_ID                   String?                      @db.VarChar(100)
+  complaint_asking_for_pets      complaint_asking_for_pets[]
+  complaint_general              complaint_general[]
+  complaint_overstay_request     complaint_overstay_request[]
+  electricity_bill               electricity_bill[]
+  rent_bill                      rent_bill[]
+  rooms_rooms_Tenant_IDTotenants rooms[]                      @relation("rooms_Tenant_IDTotenants")
+  contact_tenant                 contact_tenant?              @relation(fields: [Contact_T_ID], references: [Contact_T_ID], onDelete: NoAction, onUpdate: NoAction, map: "tenants_contact_tenant_FK")
+  rooms_tenants_Room_IDTorooms   rooms?                       @relation("tenants_Room_IDTorooms", fields: [Room_ID], references: [Room_ID], onDelete: NoAction, onUpdate: NoAction, map: "tenants_rooms_FK")
+  water_bill                     water_bill[]
+
+  @@index([Contact_T_ID], map: "tenants_contact_tenant_FK")
+  @@index([Room_ID], map: "tenants_rooms_FK")
+}
+
+model water_bill {
+  Water_ID         Int      @id @default(autoincrement())
+  Price            Int?
+  status           String?  @db.VarChar(100)
+  Tenant_ID        Int?
+  Proof_of_payment Bytes?
+  tenants          tenants? @relation(fields: [Tenant_ID], references: [Tenant_ID], onDelete: NoAction, onUpdate: NoAction, map: "water_bill_tenants_FK")
+
+  @@index([Tenant_ID], map: "water_bill_tenants_FK")
+}
