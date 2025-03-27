@@ -1,9 +1,9 @@
 const { PrismaClient } = require('@prisma/client');
 const prisma = new PrismaClient();
 
-console.log("✅ complaintsController Loaded"); // ✅ Debugging
+console.log("complaintsController Loaded"); //  Debugging
 
-// ✅ ดึงข้อมูลคำร้องทุกประเภท (รวมทุกตาราง)
+//  ดึงข้อมูลคำร้องทุกประเภท 
 const getAllComplaints = async (req, res) => {
     try {
         const [general, overstay, pets] = await Promise.all([
@@ -44,12 +44,12 @@ const getAllComplaints = async (req, res) => {
 
         res.json(complaints);
     } catch (error) {
-        console.error("❌ Error fetching complaints:", error);
+        console.error(" Error fetching complaints:", error);
         res.status(500).json({ error: "Internal Server Error" });
     }
 };
 
-// ✅ ดึงข้อมูลคำร้องจาก `Complaint_ID`
+// ดึงข้อมูลคำร้อง
 const getComplaintById = async (req, res) => {
     const { id } = req.params;
     try {
@@ -104,12 +104,12 @@ const getComplaintById = async (req, res) => {
 
         res.json(complaint);
     } catch (error) {
-        console.error("❌ Error fetching complaint by ID:", error);
+        console.error(" Error fetching complaint by ID:", error);
         res.status(500).json({ error: "Internal Server Error" });
     }
 };
 
-// ✅ เพิ่มคำร้องทั่วไป
+//  เพิ่มคำร้องทั่วไป
 const createGeneralComplaint = async (req, res) => {
     try {
         const { Complaint_type, Complaint_Detail, Tenant_ID } = req.body;
@@ -118,12 +118,12 @@ const createGeneralComplaint = async (req, res) => {
         });
         res.status(201).json({ message: 'General complaint added', complaint: newComplaint });
     } catch (error) {
-        console.error("❌ Error creating general complaint:", error);
+        console.error(" Error creating general complaint:", error);
         res.status(500).json({ error: 'Failed to add complaint' });
     }
 };
 
-// ✅ เพิ่มคำร้องขอเลี้ยงสัตว์
+//  เพิ่มคำร้องขอเลี้ยงสัตว์
 const createPetComplaint = async (req, res) => {
     try {
         const { Pet_Type, Pet_Breed, Pet_Age, Pet_Count, ComplaintAP_Detail, Tenant_ID } = req.body;
@@ -132,12 +132,12 @@ const createPetComplaint = async (req, res) => {
         });
         res.status(201).json({ message: 'Pet complaint added', complaint: newComplaint });
     } catch (error) {
-        console.error("❌ Error creating pet complaint:", error);
+        console.error(" Error creating pet complaint:", error);
         res.status(500).json({ error: 'Failed to add pet complaint' });
     }
 };
 
-// ✅ เพิ่มคำร้องขออยู่เกินกำหนด
+//  เพิ่มคำร้องขออยู่เกินกำหนด
 const createOverstayComplaint = async (req, res) => {
     try {
         const { Original_End_Date, Requested_Extension, New_End_Date, Reason, Tenant_ID } = req.body;
@@ -146,12 +146,12 @@ const createOverstayComplaint = async (req, res) => {
         });
         res.status(201).json({ message: 'Overstay complaint added', complaint: newComplaint });
     } catch (error) {
-        console.error("❌ Error creating overstay complaint:", error);
+        console.error(" Error creating overstay complaint:", error);
         res.status(500).json({ error: 'Failed to add overstay complaint' });
     }
 };
 
-// ✅ ตรวจสอบการ export
+
 console.log({
     getAllComplaints,
     getComplaintById,

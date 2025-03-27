@@ -1,7 +1,7 @@
 const { PrismaClient } = require('@prisma/client');
 const prisma = new PrismaClient();
 
-// ✅ ดึงข้อมูลค่าไฟทั้งหมด
+//  ดึงข้อมูลค่าไฟทั้งหมด
 const getElectricityBills = async (req, res) => {
     try {
         const bills = await prisma.electricity_bill.findMany();
@@ -11,7 +11,7 @@ const getElectricityBills = async (req, res) => {
     }
 };
 
-// ✅ ดึงข้อมูลค่าน้ำทั้งหมด
+//  ดึงข้อมูลค่าน้ำทั้งหมด
 const getWaterBills = async (req, res) => {
     try {
         const bills = await prisma.water_bill.findMany();
@@ -21,7 +21,7 @@ const getWaterBills = async (req, res) => {
     }
 };
 
-// ✅ ดึงข้อมูลค่าเช่าห้องทั้งหมด
+// ดึงข้อมูลค่าเช่าห้องทั้งหมด
 const getRentBills = async (req, res) => {
     try {
         const bills = await prisma.rent_bill.findMany();
@@ -31,7 +31,7 @@ const getRentBills = async (req, res) => {
     }
 };
 
-// ✅ เพิ่มค่าไฟใหม่
+// เพิ่มค่าไฟใหม่
 const createElectricityBill = async (req, res) => {
     const { Price, status, Tenant_ID } = req.body;
 
@@ -46,7 +46,7 @@ const createElectricityBill = async (req, res) => {
     }
 };
 
-// ✅ เพิ่มค่าน้ำใหม่
+// เพิ่มค่าน้ำใหม่
 const createWaterBill = async (req, res) => {
     const { Price, status, Tenant_ID } = req.body;
 
@@ -61,7 +61,7 @@ const createWaterBill = async (req, res) => {
     }
 };
 
-// ✅ เพิ่มค่าเช่าใหม่
+//  เพิ่มค่าเช่าใหม่
 const createRentBill = async (req, res) => {
     const { Price, status, Tenant_ID } = req.body;
 

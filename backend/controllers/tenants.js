@@ -1,7 +1,7 @@
 const { PrismaClient } = require('@prisma/client');
 const prisma = new PrismaClient();
 
-// ✅ สร้าง Tenant ใหม่
+// สร้าง Tenant ใหม่
 const createTenant = async (req, res) => {
     const { Ten_name, Address, Room_ID, Contact_T_ID } = req.body;
 
@@ -24,7 +24,7 @@ const createTenant = async (req, res) => {
     }
 };
 
-// ✅ ดึงข้อมูล Tenant ทั้งหมด
+//  ดึงข้อมูล Tenant ทั้งหมด
 const getTenants = async (req, res) => {
     try {
         const tenants = await prisma.tenants.findMany();
@@ -34,7 +34,7 @@ const getTenants = async (req, res) => {
     }
 };
 
-// ✅ ดึงข้อมูล Tenant ตาม `Tenant_ID`
+// ดึงข้อมูล Tenant ตาม i
 const getTenant = async (req, res) => {
     const Tenant_ID = parseInt(req.params.Tenant_ID);
 
@@ -56,7 +56,7 @@ const getTenant = async (req, res) => {
     }
 };
 
-// ✅ อัปเดตข้อมูล Tenant
+// อัปเดตข้อมูล Tenant
 const updateTenant = async (req, res) => {
     const { Ten_name, Address, Room_ID, Contact_T_ID } = req.body;
     const Tenant_ID = parseInt(req.params.Tenant_ID);
@@ -84,7 +84,7 @@ const updateTenant = async (req, res) => {
     }
 };
 
-// ✅ ลบ Tenant
+// ✅]ลบ Tenant
 const deleteTenant = async (req, res) => {
     const Tenant_ID = parseInt(req.params.Tenant_ID);
 
@@ -109,7 +109,7 @@ const deleteTenant = async (req, res) => {
     }
 };
 
-// ✅ ส่งออกฟังก์ชันทั้งหมด
+
 module.exports = {
     createTenant,
     getTenants,

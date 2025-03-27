@@ -4,7 +4,7 @@ const prisma = new PrismaClient();
 exports.getElectricityBills = async (req, res) => {
     try {
         const bills = await prisma.electricity_bill.findMany({
-            include: { tenants: { select: { Room_ID: true } } } // แก้จาก 'tenant' เป็น 'tenants'
+            include: { tenants: { select: { Room_ID: true } } } 
         });
 
         const response = bills.map(bill => ({
@@ -27,7 +27,7 @@ exports.getElectricityBillByTenant = async (req, res) => {
     try {
         const bill = await prisma.electricity_bill.findFirst({
             where: { Tenant_ID: parseInt(tenant_id) },
-            include: { tenants: { select: { Room_ID: true } } } // แก้จาก 'tenant' เป็น 'tenants'
+            include: { tenants: { select: { Room_ID: true } } } 
         });
 
         if (!bill) return res.status(404).json({ error: "Bill not found" });

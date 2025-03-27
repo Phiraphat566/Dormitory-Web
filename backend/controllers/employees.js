@@ -1,7 +1,7 @@
 const { PrismaClient } = require('@prisma/client');
 const prisma = new PrismaClient();
 
-// ✅ ดึงรายชื่อพนักงานทั้งหมด
+//  ดึงรายชื่อพนักงานทั้งหมด
 const getEmployees = async (req, res) => {
     try {
         const employees = await prisma.officer.findMany();
@@ -11,7 +11,7 @@ const getEmployees = async (req, res) => {
     }
 };
 
-// ✅ เพิ่มพนักงานใหม่
+//  เพิ่มพนักงานใหม่
 const createEmployee = async (req, res) => {
     const { first_name, last_name, Address, position, salary } = req.body;
 
@@ -29,7 +29,7 @@ const createEmployee = async (req, res) => {
     }
 };
 
-// ✅ แก้ไขข้อมูลพนักงาน
+//  แก้ไขข้อมูลพนักงาน
 const updateEmployee = async (req, res) => {
     const { first_name, last_name, Address, position, salary } = req.body;
     const { Officer_ID } = req.params;
@@ -49,7 +49,7 @@ const updateEmployee = async (req, res) => {
     }
 };
 
-// ✅ ลบพนักงาน
+//  ลบพนักงาน
 const deleteEmployee = async (req, res) => {
     const { Officer_ID } = req.params;
 

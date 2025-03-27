@@ -1,7 +1,7 @@
 const { PrismaClient } = require('@prisma/client');
 const prisma = new PrismaClient();
 
-// ✅ ดึงข้อมูลห้องพักทั้งหมด
+// ดึงข้อมูลห้องพักทั้งหมด
 const getRooms = async (req, res) => {
     try {
         const rooms = await prisma.rooms.findMany();
@@ -11,7 +11,7 @@ const getRooms = async (req, res) => {
     }
 };
 
-// ✅ ดึงข้อมูลห้องพักตาม ID
+// ดึงข้อมูลห้องพัก
 const getRoomById = async (req, res) => {
     try {
         const room = await prisma.rooms.findUnique({

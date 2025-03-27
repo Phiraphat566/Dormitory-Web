@@ -3,7 +3,7 @@ const prisma = new PrismaClient();
 
 const getContactTenantById = async (req, res) => {
     try {
-        const contactId = req.params.id; // รับค่าจาก URL
+        const contactId = req.params.id; 
 
         // ดึงข้อมูลจากฐานข้อมูล
         const contact = await prisma.contact_tenant.findUnique({
@@ -23,5 +23,5 @@ const getContactTenantById = async (req, res) => {
     }
 };
 
-// ✅ ตรวจสอบว่ามีการ export ฟังก์ชัน
+
 module.exports = { getContactTenantById };

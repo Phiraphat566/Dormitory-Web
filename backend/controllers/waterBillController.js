@@ -1,12 +1,12 @@
 const { PrismaClient } = require("@prisma/client");
 const prisma = new PrismaClient();
 
-// ✅ ดึงข้อมูลค่าน้ำทั้งหมด
+// ดึงข้อมูลค่าน้ำทั้งหมด
 exports.getWaterBills = async (req, res) => {
     try {
         const bills = await prisma.water_bill.findMany({
             include: {
-                tenants: { select: { Room_ID: true } } // ✅ เชื่อมกับ tenants เพื่อดึง Room_ID
+                tenants: { select: { Room_ID: true } }
             }
         });
 
@@ -20,12 +20,12 @@ exports.getWaterBills = async (req, res) => {
 
         res.json(response);
     } catch (error) {
-        console.error("❌ Error fetching water bills:", error);
+        console.error(" Error fetching water bills:", error);
         res.status(500).json({ error: "Error fetching water bills", details: error.message });
     }
 };
 
-// ✅ ดึงข้อมูลค่าน้ำตาม Tenant ID
+//  ดึงข้อมูลค่าน้ำตาม Tenant ID
 exports.getWaterBillByTenant = async (req, res) => {
     const { tenant_id } = req.params;
 
@@ -33,7 +33,7 @@ exports.getWaterBillByTenant = async (req, res) => {
         const bill = await prisma.water_bill.findFirst({
             where: { Tenant_ID: parseInt(tenant_id) },
             include: {
-                tenants: { select: { Room_ID: true } } // ✅ ดึง Room_ID จาก tenants
+                tenants: { select: { Room_ID: true } }
             }
         });
 
@@ -47,7 +47,7 @@ exports.getWaterBillByTenant = async (req, res) => {
             proof_of_payment: bill.Proof_of_payment ? bill.Proof_of_payment.toString() : null
         });
     } catch (error) {
-        console.error("❌ Error fetching water bill:", error);
+        console.error(" Error fetching water bill:", error);
         res.status(500).json({ error: "Error fetching water bill", details: error.message });
     }
 };

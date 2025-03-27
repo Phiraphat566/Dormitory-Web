@@ -10,8 +10,8 @@ const getPaymentProof = async (req, res) => {
         const rentBill = await prisma.rent_bill.findFirst({
             where: {
                 OR: [
-                    { Rent_ID: parseInt(id) }, // ค้นหาด้วย Rent_ID
-                    { Tenant_ID: parseInt(id) } // ค้นหาด้วย Tenant_ID
+                    { Rent_ID: parseInt(id) }, 
+                    { Tenant_ID: parseInt(id) } 
                 ]
             },
             select: {
